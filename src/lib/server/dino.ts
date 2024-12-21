@@ -2,7 +2,7 @@ export type Dino = { name: string; description: string };
 
 const dinos = new Map<string, Dino>();
 
-const allDinos = [
+const allDinos: Dino[] = [
 	{
 		name: 'Aardonyx',
 		description: 'An early stage in the evolution of sauropods.'
