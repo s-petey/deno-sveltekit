@@ -4,8 +4,6 @@
 
 	let { data } = $props();
 
-	let q = $state(data.q);
-
 	function handlePageChange(page: number) {
 		const params = new URLSearchParams(sveltePage.url.searchParams);
 
@@ -13,12 +11,21 @@
 		goto(`?${params.toString()}`, { keepFocus: true });
 	}
 
-	function handleQueryChange() {
-		if (q) {
-			const params = new URLSearchParams(sveltePage.url.searchParams);
+	function handleQueryChange(
+		event: SubmitEvent & {
+			currentTarget: EventTarget & HTMLFormElement;
+		}
+	) {
+		const q = event.currentTarget.q.value;
+		const params = new URLSearchParams(sveltePage.url.searchParams);
 
+		if (q) {
 			params.set('q', q);
 			params.set('page', '1');
+			goto(`?${params.toString()}`, { keepFocus: true });
+		} else {
+			params.delete('q');
+			params.delete('page');
 			goto(`?${params.toString()}`, { keepFocus: true });
 		}
 	}
@@ -27,7 +34,7 @@
 <form
 	onsubmit={(e) => {
 		e.preventDefault();
-		handleQueryChange();
+		handleQueryChange(e);
 	}}
 	class="mb-4"
 >
@@ -37,8 +44,8 @@
 		type="text"
 		id="q"
 		name="q"
-		bind:value={q}
 		placeholder="Search"
+		defaultValue={data.q ?? ''}
 	/>
 </form>
 
