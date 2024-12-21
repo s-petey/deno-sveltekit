@@ -1,4 +1,6 @@
-const dinos = new Map<string, { name: string; description: string }>();
+export type Dino = { name: string; description: string };
+
+const dinos = new Map<string, Dino>();
 
 const allDinos = [
 	{
