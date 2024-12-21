@@ -86,7 +86,7 @@
 	</button>
 {/snippet}
 
-<style>
+<style lang="postcss">
 	.active {
 		@apply bg-emerald-400 text-white;
 	}
