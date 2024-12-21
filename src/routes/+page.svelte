@@ -16,6 +16,8 @@
 			currentTarget: EventTarget & HTMLFormElement;
 		}
 	) {
+		event.preventDefault();
+
 		const q = event.currentTarget.q.value;
 		const params = new URLSearchParams(sveltePage.url.searchParams);
 
@@ -31,13 +33,7 @@
 	}
 </script>
 
-<form
-	onsubmit={(e) => {
-		e.preventDefault();
-		handleQueryChange(e);
-	}}
-	class="mb-4"
->
+<form onsubmit={handleQueryChange} class="mb-4">
 	<label class="mb-2 block text-sm font-bold" for="q">Search</label>
 	<input
 		class="focus:shadow-outline w-ful form-input appearance-none rounded border px-3 py-2 leading-tight text-gray-700 shadow focus:outline-none"
