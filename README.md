@@ -6,13 +6,11 @@ Through this tutorial we will walk through setting up a SvelteKit project, made 
 
 You can see the finished app at [GitHub](https://github.com/s-petey/deno-sveltekit)
 
-<!-- TODO: Add gif / video of the app sv_create -->
-
 ## Getting started
 
 We can scaffold an application easily with `npx sv create`. This is [SvelteKit's CLI](https://github.com/sveltejs/cli) which has a lot of utility.
 
-<!-- Insert video DRAG AND DROP online -->
+https://github.com/user-attachments/assets/8357d46b-b535-44e3-9191-1496e0632bd1
 
 If you have followed the video above great! if not, here are the selections:
 
@@ -409,4 +407,6 @@ Another neat Svelte trick is that whenever we have `<style>` defined on the page
 
 I have updated some of the styling to make it more pleasant to look at, but I know you have great taste and are free to make it look however you'd like!
 
-<!-- TODO: Add video of application running app_showcase -->
+# App Showcase
+
+https://github.com/user-attachments/assets/c5926d48-1ea3-420f-9d3d-d74a5a49486a
