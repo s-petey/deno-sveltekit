@@ -6,22 +6,21 @@
     "preview": "vite preview",
     "check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
     "check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
-    "format": "prettier --write .",
-    "lint": "prettier --check . && eslint ."
+    "format": "deno fmt .",
+    "lint": "deno fmt --check . && eslint .",
+    "lint:fix": "deno fmt . && eslint . --fix"
   },
   "imports": {
+    "$lib": "./src/lib",
     "@eslint/compat": "npm:@eslint/compat@^1.2.3",
-    "@sveltejs/adapter-auto": "npm:@sveltejs/adapter-auto@^3.0.0",
+    "@eslint/js": "npm:@eslint/js@^9.22.0",
+    "@sveltejs/adapter-node": "npm:@sveltejs/adapter-node@^5.2.12",
     "@sveltejs/kit": "npm:@sveltejs/kit@^2.0.0",
     "@sveltejs/vite-plugin-svelte": "npm:@sveltejs/vite-plugin-svelte@^4.0.0",
     "autoprefixer": "npm:autoprefixer@^10.4.20",
     "eslint": "npm:eslint@^9.7.0",
-    "eslint-config-prettier": "npm:eslint-config-prettier@^9.1.0",
     "eslint-plugin-svelte": "npm:eslint-plugin-svelte@^2.36.0",
     "globals": "npm:globals@^15.0.0",
-    "prettier": "npm:prettier@^3.3.2",
-    "prettier-plugin-svelte": "npm:prettier-plugin-svelte@^3.2.6",
-    "prettier-plugin-tailwindcss": "npm:prettier-plugin-tailwindcss@^0.6.5",
     "svelte": "npm:svelte@^5.15.0",
     "svelte-check": "npm:svelte-check@^4.0.0",
     "tailwindcss": "npm:tailwindcss@^3.4.9",
@@ -29,20 +28,15 @@
     "typescript-eslint": "npm:typescript-eslint@^8.0.0",
     "vite": "npm:vite@^5.4.11",
     "@tailwindcss/forms": "npm:@tailwindcss/forms@^0.5.9",
-    "@tailwindcss/typography": "npm:@tailwindcss/typography@^0.5.15",
-    "sveltekit-adapter-deno": "npm:sveltekit-adapter-deno@^0.16.1"
+    "@tailwindcss/typography": "npm:@tailwindcss/typography@^0.5.15"
   },
 
-  "compilerOptions": {
-    "allowJs": true,
-    "checkJs": true,
-    "strict": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "resolveJsonModule": true,
-    "skipLibCheck": true,
-    "sourceMap": true,
-    "moduleResolution": "bundler"
+  "nodeModulesDir": "auto",
+  "rules": {
+    "tags": ["recommended"]
   },
-  "nodeModulesDir": "auto"
+  "fmt": {
+    "singleQuote": true
+  },
+  "unstable": ["fmt-component", "detect-cjs"]
 }
