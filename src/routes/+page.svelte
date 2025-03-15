@@ -58,7 +58,7 @@
 <!-- pagination -->
 {#if data.totalPages > 0}
 	<div class="mb-4 flex justify-center">
-		<div class="grid w-1/2 grid-flow-col gap-2">
+		<div class="grid grid-flow-col gap-2 overflow-hidden">
 			{@render pageButton(data.page - 1, data.page === 1, false, '←')}
 
 			{#each { length: data.totalPages }, page}
