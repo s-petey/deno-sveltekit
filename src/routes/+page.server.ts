@@ -1,6 +1,7 @@
 import { dinos } from '$lib/server/dino.js';
+import { Load } from "@sveltejs/kit";
 
-export const load = async ({ url }) => {
+export const load: Load = ({ url }) => {
 	const queryParams = url.searchParams;
 
 	const q = queryParams.get('q');
